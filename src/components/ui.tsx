@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState, type ReactNode } from "react";
+import { formatPrice, type Product } from "../data/products";
 import { cn } from "../utils/cn";
 
 /* Scroll reveal wrapper */
@@ -172,5 +173,17 @@ export function whatsappLink(message: string) {
 }
 
 export const WA_LINK = whatsappLink(
-  "Habari Salevi! Naomba bei ya Salevi Elite Concentrate na maelezo ya delivery."
+  "Hello Salevi Poultry Farm, I would like information about your poultry feed and day-old chicks."
 );
+
+export function productOrderMessage(product: Product, quantity = 1) {
+  const count = Number.isFinite(quantity) ? Math.max(1, Math.floor(quantity)) : 1;
+  const productLabel = product.category === "feed" ? `${product.name} 50kg` : product.name;
+  const unit = product.category === "feed" ? (count === 1 ? "bag" : "bags") : (count === 1 ? "chick" : "chicks");
+  const total = count > 1 ? ` Product total: ${formatPrice(product.price * count)}.` : "";
+  return `Hello Salevi Poultry Farm, I am interested in purchasing ${productLabel} at ${formatPrice(product.price)} per ${product.unit}. Quantity: ${count} ${unit}.${total} Please provide ordering information.`;
+}
+
+export function productOrderLink(product: Product, quantity = 1) {
+  return whatsappLink(productOrderMessage(product, quantity));
+}

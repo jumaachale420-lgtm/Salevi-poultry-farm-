@@ -1,14 +1,16 @@
 import { useEffect, useState } from "react";
-import { Menu, X, Phone, ChevronRight, BadgeCheck, Truck } from "lucide-react";
+import { Menu, X, Phone, ChevronRight, PackageCheck } from "lucide-react";
 import { cn } from "../utils/cn";
+import BrandLogo from "./BrandLogo";
 import { WA_LINK, WhatsAppIcon } from "./ui";
 
 const links = [
-  { label: "Why Salevi", href: "#features" },
-  { label: "Products", href: "#products" },
-  { label: "Results", href: "#results" },
-  { label: "Pricing", href: "#pricing" },
-  { label: "FAQ", href: "#faq" },
+  { label: "Home", href: "#top" },
+  { label: "About", href: "#about" },
+  { label: "Poultry Feeds", href: "#products" },
+  { label: "Day-Old Chicks", href: "#chicks" },
+  { label: "Our Services", href: "#services" },
+  { label: "Contact Us", href: "#contact" },
 ];
 
 export default function Navbar() {
@@ -31,10 +33,9 @@ export default function Navbar() {
     <>
       {/* Top announcement bar */}
       <div className="fixed inset-x-0 top-0 z-[60] flex items-center justify-center gap-2 bg-forest-950 px-4 py-2 text-center text-[12px] font-semibold tracking-wide text-cream-50 sm:text-[13px]">
-        <Truck className="h-3.5 w-3.5 shrink-0 text-gold-400" />
+        <PackageCheck className="h-3.5 w-3.5 shrink-0 text-gold-400" />
         <p className="truncate">
-          <span className="text-gold-300">FREE delivery</span> in Arusha & Moshi on 5+ bags this week
-          <span className="ml-2 hidden rounded-full bg-gold-500/20 px-2 py-0.5 text-gold-300 sm:inline-block">Ends Sunday</span>
+          <span className="text-gold-300">Salevi Poultry Farm</span> | Poultry feed and day-old chicks
         </p>
       </div>
 
@@ -56,30 +57,25 @@ export default function Navbar() {
           >
             {/* Logo */}
             <a href="#top" className="group flex items-center gap-2.5" aria-label="Salevi home">
-              <span className="relative flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-forest-800 via-forest-900 to-forest-950 shadow-md shadow-forest-950/30 ring-1 ring-gold-500/40 transition-transform duration-300 group-hover:rotate-6 group-hover:scale-105">
-                <span className="font-display text-xl font-black text-gold-400">S</span>
-                <span className="absolute -right-1 -top-1 flex h-4 w-4 items-center justify-center rounded-full bg-gold-500">
-                  <BadgeCheck className="h-3 w-3 text-forest-950" />
-                </span>
-              </span>
+              <BrandLogo className="h-11 w-[72px] rounded-lg bg-white p-1" />
               <span className="leading-none">
                 <span className={cn("font-display block text-[19px] font-bold tracking-tight transition-colors", scrolled ? "text-forest-950" : "text-white")}>
                   Salevi
                 </span>
                 <span className={cn("block text-[10px] font-bold uppercase tracking-[0.22em]", scrolled ? "text-gold-700" : "text-gold-300")}>
-                  Elite Concentrate
+                  Poultry Farm
                 </span>
               </span>
             </a>
 
             {/* Desktop links */}
-            <ul className="hidden items-center gap-1 lg:flex">
+            <ul className="hidden items-center gap-1 xl:flex">
               {links.map((l) => (
                 <li key={l.href}>
                   <a
                     href={l.href}
                     className={cn(
-                      "rounded-full px-4 py-2 text-sm font-semibold transition-all duration-300 hover:bg-white/20",
+                      "rounded-full px-3 py-2 text-sm font-semibold transition-all duration-300 hover:bg-white/20",
                       scrolled ? "text-forest-900 hover:bg-forest-900/5" : "text-white/90 hover:text-white"
                     )}
                   >
@@ -90,7 +86,7 @@ export default function Navbar() {
             </ul>
 
             {/* Desktop CTA */}
-            <div className="hidden items-center gap-2.5 lg:flex">
+            <div className="hidden items-center gap-2.5 xl:flex">
               <a
                 href="tel:+255766679472"
                 className={cn(
@@ -119,7 +115,7 @@ export default function Navbar() {
               aria-expanded={open}
               aria-label={open ? "Close menu" : "Open menu"}
               className={cn(
-                "flex h-10 w-10 items-center justify-center rounded-xl transition-colors lg:hidden",
+                "flex h-10 w-10 items-center justify-center rounded-xl transition-colors xl:hidden",
                 scrolled ? "bg-forest-900/5 text-forest-950" : "bg-white/15 text-white"
               )}
             >
@@ -131,7 +127,7 @@ export default function Navbar() {
         {/* Mobile menu */}
         <div
           className={cn(
-            "mx-auto max-w-7xl px-3 transition-all duration-500 sm:px-5 lg:hidden",
+            "absolute inset-x-0 top-full mx-auto max-w-7xl px-3 transition-all duration-500 sm:px-5 xl:hidden",
             open ? "pointer-events-auto mt-2 opacity-100" : "pointer-events-none mt-0 opacity-0"
           )}
         >

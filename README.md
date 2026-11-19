@@ -1,16 +1,13 @@
-# Salevi-poultry-farm-Salevi Poultry Farm 🐔🥚
+# Salevi Poultry Farm
 
-> *"Kuku Bora, Lishe Bora, Matokeo Bora"*
+The Salevi Poultry Farm website presents poultry concentrates in 50kg bags and day-old chicks:
 
-Karibu kwenye hazina rasmi ya tovuti ya **Salevi Poultry Farm** – kampuni ya kisasa ya kuku iliyoko Arusha, Tanzania, inayojishughulisha na vifaranga, mayai ya kuatamia, chakula bora, na viiniilishe (concentrates) vya kuku.
+- Salevi Layer Concentrate: TSh 95,000 per 50kg bag.
+- Salevi Broiler Concentrate: TSh 96,000 per 50kg bag.
+- SLV Ruster Kienyeji: TSh 2,500 per chick.
+- Salevi Elite Hybrid Layer: TSh 4,200 per chick.
+- Broiler Chicks: TSh 2,200 per chick.
 
----
+Orders and enquiries: WhatsApp +255 766 679 472.
 
-## 🌟 Kuhusu Mradi Huu
-Hazina hii ina nambari za chanzo (source code) za tovuti ya kisasa, ya haraka, na inayofaa kwa simu ya mkononi. Tovuti hii imeundwa kwa viwango vya kimataifa vya kilimo biashara (ikiongozwa na mfumo wa rangi za Kijani Kibichi, Dhahabu, Nyeupe, na Nyeusi).
-
-### 🛠️ Yaliyomo Kwenye Tovuti:
-- **Ukurasa wa Nyumbani:** Muonekano wa kuvutia na vifungo vya haraka vya kuagiza.
-- **Kuhusu Sisi:** Dira na dhima yetu katika kuboresha tija ya wafugaji Afrika Mashariki.
-- **Bidhaa & Huduma:** Maelezo ya *Salevi Elite Layer Concentrate*, vifaranga, vifaa, na ushauri wa kitaalamu wa ufugaji.
-- **Rasilimali:** Nyumba ya picha (gallery), makala za mafunzo ya ufugaji, na fomu za mawasiliano/WhatsApp ya moja kwa moja.
+The website is built with React, TypeScript, Vite, and Tailwind CSS. Original logo and approved product photo slots are documented in `src/assets/README.md`; see `GITHUB.md` for publishing instructions.

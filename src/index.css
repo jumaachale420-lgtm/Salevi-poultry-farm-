@@ -7,7 +7,7 @@
   --color-forest-950: #04170c;
   --color-forest-900: #0b3b1f;
   --color-forest-800: #0f4d28;
-  --color-forest-700: #145f33;
+  --color-forest-700: #135d2d;
   --color-forest-600: #187641;
   --color-forest-100: #dcf0e3;
   --color-forest-50: #f0f9f3;
@@ -67,7 +67,7 @@ html {
 
 body {
   font-family: var(--font-sans);
-  background: var(--color-cream-50);
+  background: #fff;
   color: #14231a;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
@@ -81,7 +81,7 @@ body {
 ::-webkit-scrollbar { width: 11px; }
 ::-webkit-scrollbar-track { background: #fffbf0; }
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #0b3b1f, #145f33);
+  background: linear-gradient(180deg, #0b3b1f, #135d2d);
   border-radius: 8px;
   border: 2px solid #fffbf0;
 }
