@@ -98,6 +98,21 @@ if [[ -z "$(git -C "$checkout" config --get user.email || true)" ]]; then
   git -C "$checkout" config --local user.email "${account_id}+${account}@users.noreply.github.com"
 fi
 
+# Remove only known generated illustrations, not user-replaced files.
+for entry in \
+  "public/images/salevi-bag.png:158f043e89bac15e6d7f817c2e4172b7a58cbaf0:3171a32c154ec534a620d63cdcc51a2dba6d9534" \
+  "public/images/salevi-feed.jpg:18e0f5e52e4e6e90587703fd963248559a266fea:b128bff9f193ff881e650af23deadf07d9e4e169"; do
+  IFS=':' read -r image known_live known_preview <<< "$entry"
+  if [[ -f "$checkout/$image" ]]; then
+    image_hash="$(git -C "$checkout" hash-object "$image")"
+    if [[ "$image_hash" == "$known_live" || "$image_hash" == "$known_preview" ]]; then
+      rm -f "$checkout/$image"
+    else
+      fail "Faili $image imebadilishwa kwenye GitHub. Ikague kabla ya kuichapisha ili isifutwe bila idhini."
+    fi
+  fi
+done
+
 # Overlay only the application files; unrelated existing repository files stay intact.
 for directory in public src scripts; do
   if [[ -d "$project_dir/$directory" ]]; then
@@ -105,7 +120,7 @@ for directory in public src scripts; do
     cp -R "$project_dir/$directory/." "$checkout/$directory/"
   fi
 done
-for file in .gitignore GITHUB.md index.html package.json package-lock.json tsconfig.json vite.config.ts; do
+for file in .gitignore GITHUB.md README.md Index.html index.html package.json package-lock.json tsconfig.json vite.config.ts; do
   if [[ -f "$project_dir/$file" ]]; then
     cp "$project_dir/$file" "$checkout/$file"
   fi

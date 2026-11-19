@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
+import About from "./components/About";
 import SocialProof from "./components/SocialProof";
 import Features from "./components/Features";
 import Showcase from "./components/Showcase";
+import Chicks from "./components/Chicks";
+import Services from "./components/Services";
 import Benefits from "./components/Benefits";
 import Testimonials from "./components/Testimonials";
 import Pricing from "./components/Pricing";
@@ -36,10 +39,7 @@ function FloatingButtons() {
         <span className="absolute inset-0 animate-pulse-ring rounded-full bg-[#1FA855]" aria-hidden="true" />
         <WhatsAppIcon className="relative h-7 w-7" />
         <span className="pointer-events-none absolute right-full mr-3 hidden whitespace-nowrap rounded-xl bg-forest-950 px-3.5 py-2 text-[13px] font-bold text-white opacity-0 shadow-xl transition-all duration-300 group-hover:opacity-100 sm:block">
-          Chat with a vet — replies in ~10 min
-        </span>
-        <span className="absolute -right-0.5 -top-0.5 flex h-5 w-5 items-center justify-center rounded-full bg-gold-500 text-[10px] font-black text-forest-950 ring-2 ring-cream-50">
-          1
+          Chat with the Salevi team
         </span>
       </a>
 
@@ -79,16 +79,19 @@ export default function App() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-cream-50 font-sans text-forest-950 antialiased">
+    <div className="min-h-screen bg-white font-sans text-forest-950 antialiased">
       <a href="#products" className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-xl focus:bg-gold-500 focus:px-4 focus:py-2 focus:font-bold focus:text-forest-950">
         Skip to products
       </a>
       <Navbar />
       <main>
         <Hero />
+        <About />
         <SocialProof />
         <Features />
         <Showcase />
+        <Chicks />
+        <Services />
         <Benefits />
         <Testimonials />
         <Pricing />
